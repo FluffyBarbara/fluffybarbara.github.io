@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>Fluffy Barbara — Портфолио</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+
+  body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #d8d8d8;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 50px;
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(180deg, rgba(25,25,25,0.85), rgba(40,40,40,0.7), rgba(25,25,25,0.85));
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  .wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  }
+
+  .avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 3px solid #a0b0b8;
+    margin: 0 auto 1.5rem;
+    object-fit: cover;
+    box-shadow:
+      0 0 12px #a0b0b8aa,
+      0 0 25px #a0b0b8bb;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    will-change: transform;
+  }
+  .avatar:hover {
+    transform: scale(1.07) rotate(3deg);
+    box-shadow:
+      0 0 35px #bbcbd6dd,
+      0 0 50px #bbcbd6ee;
+  }
+
+  h1 {
+    font-weight: 600;
+    font-size: 3rem;
+    margin-bottom: 0.3rem;
+    color: #a0aabb;
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 4px #2f3640;
+    cursor: default;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+  }
+  h1:hover,
+  h1:focus {
+    color: #d0dfea;
+    text-shadow:
+      0 0 10px #8ea1b5,
+      0 0 20px #a0b0c0,
+      0 0 30px #a0b0c0;
+    outline: none;
+  }
+
+  h2 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    color: #a0aabb;
+    margin-bottom: 3rem;
+    font-style: italic;
+    text-shadow: 0 0 4px #2f3640;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    cursor: default;
+  }
+  h2:hover,
+  h2:focus {
+    color: #d0dfea;
+    text-shadow:
+      0 0 10px #8ea1b5,
+      0 0 20px #a0b0c0,
+      0 0 30px #a0b0c0;
+    outline: none;
+  }
+
+  .social-title {
+    font-weight: 700;
+    font-size: 1.8rem;
+    color: #bbcbd6;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    cursor: default;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-shadow: 0 0 4px #7a8b98aa;
+    user-select: text;
+  }
+  .social-title:hover,
+  .social-title:focus {
+    color: #d0dfea;
+    text-shadow:
+      0 0 10px #8ea1b5,
+      0 0 20px #a0b0c0,
+      0 0 30px #a0b0c0;
+    outline: none;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.8rem;
+    margin-bottom: 5rem;
+    flex-wrap: nowrap;
+    overflow: visible;
+  }
+
+  .btn {
+    background: transparent;
+    border: 2px solid #8ea1b5;
+    padding: 0.9rem 2.4rem;
+    color: #8ea1b5;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #8ea1b533;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .btn:hover {
+    background: #8ea1b5;
+    color: #222b33;
+    box-shadow:
+      0 0 18px #8ea1b5,
+      0 0 30px #aab7c9;
+    transform: scale(1.05);
+    z-index: 1;
+  }
+
+  .btn-link {
+    color: #8ea1b5;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .btn-link:hover,
+  .btn-link:focus {
+    color: #a0b0c0;
+    outline: none;
+  }
+
+  .projects-desc {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    color: #bbcbd6;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+  .projects-desc h3 {
+    font-weight: 600;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  .projects-desc ul {
+    list-style: disc inside;
+    padding-left: 1rem;
+  }
+  .projects-desc li {
+    margin-bottom: 1rem;
+  }
+  .projects-desc strong {
+    color: #d0dfea;
+    font-weight: 700;
+  }
+
+  section.projects {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .project-card {
+    background: #2f3640;
+    padding: 1.8rem 2rem;
+    border-radius: 16px;
+    width: 260px;
+    box-shadow:
+      0 0 10px #7a8b98cc,
+      inset 0 0 8px #556677bb;
+    cursor: pointer;
+    color: #d8d8d8;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    will-change: transform;
+  }
+  .project-card:hover {
+    box-shadow:
+      0 0 28px #a0b0c0cc,
+      inset 0 0 16px #a0b0c0cc;
+    transform: translateY(-8px) scale(1.04);
+    background: #384552cc;
+  }
+  .project-card a {
+    color: inherit;
+    text-decoration: none;
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #55667744, #7a8b9855);
+    opacity: 0;
+    border-radius: 16px;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .project-card:hover::after {
+    opacity: 1;
+  }
+
+  /* Медиазапросы для адаптивности */
+
+  /* На мобильных устройствах до 600px */
+  @media (max-width: 600px) {
+    .buttons {
+      flex-direction: column;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    section.projects {
+      flex-direction: column;
+      align-items: center;
+    }
+    .project-card {
+      width: 90%;
+    }
+    h1 {
+      font-size: 2.2rem;
+    }
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 2rem;
+    }
+    .social-title {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* Средние экраны — планшеты 600-900px */
+  @media (min-width: 601px) and (max-width: 900px) {
+    .wrapper {
+      padding: 2rem 1.5rem;
+    }
+    h1 {
+      font-size: 2.6rem;
+    }
+    h2 {
+      font-size: 1.6rem;
+      margin-bottom: 2.5rem;
+    }
+    .buttons {
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      justify-content: center;
+    }
+    .project-card {
+      width: 45%;
+      margin-bottom: 1.5rem;
+    }
+    .projects-desc {
+      font-size: 1rem;
+    }
+  }
+
+  /* Большие экраны — десктоп 900px и выше */
+  @media (min-width: 901px) {
+    .wrapper {
+      padding: 3rem 2rem;
+    }
+    .project-card {
+      width: 260px;
+    }
+    .projects-desc {
+      font-size: 1.1rem;
+    }
+  }
+
+.footer-bar {
+  position: static; /* вместо fixed */
+  height: 50px;
+  background-color: #000000dd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaaabb;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  user-select: none;
+  z-index: 1000;
+  box-shadow: 0 -2px 8px #000000cc;
+}
+
+</style>
+</head>
+<body>
+
+<div class="wrapper" role="main" aria-label="Портфолио Fluffy Barbara">
+  <img
+    src="https://sun9-14.userapi.com/impg/CYlpIoJ_9zOZs91afE3TJUMJbPWOPHLejgt_yA/0n4OAC5MCCI.jpg?size=1620x2160&quality=95&sign=e6a890c1e44680d2d97ff99d9d034c23&type=album"
+    alt="Фото Fluffy Barbara"
+    class="avatar"
+    tabindex="0"
+  />
+  <h1 tabindex="0">Гонцовский Никита Русланович</h1>
+  <h2 tabindex="0">Творческий псевдоним: Fluffy Barbara</h2>
+
+  <div class="social-title" tabindex="0">Мои соц. сети:</div>
+
+  <nav class="buttons" aria-label="Основные ссылки">
+    <a href="https://band.link/fluffybarbara" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">Музыка</a>
+    <a href="https://discord.gg/QxNGkTxgx2" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">Discord</a>
+    <a href="https://github.com/FluffyBarbara" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">GitHub</a>
+    <a href="https://vk.com/fluffybarbarapage" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">Группа ВК</a>
+    <a href="https://vk.com/fluffybarbara" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">Страница ВК</a>
+    <a href="https://t.me/fluffy_barbara" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">Telegram</a>
+  </nav>
+
+  <section class="projects-desc" aria-label="Описание проектов">
+    <h3>
+      Мои созданные проекты на
+      <a href="https://github.com/FluffyBarbara" target="_blank" rel="noopener noreferrer" class="btn-link">Github</a>:
+    </h3>
+    <ul>
+      <li>
+        <strong><a href="https://github.com/FluffyBarbara/SpeakTimer-GTA5RP" target="_blank" rel="noopener noreferrer" class="btn-link">SpeakTimer</a></strong> — умный и простой AHK-скрипт для GTA5RP, созданный для игроков, которые ценят своё время и любят фармить эффективно. Автоматизация рутины, безопасность и лёгкость в использовании — всё, что нужно для комфортной игры.
+      </li>
+      <li>
+        <strong><a href="https://github.com/FluffyBarbara/Task-Flow" target="_blank" rel="noopener noreferrer" class="btn-link">TaskFlow</a></strong> — это удобный планировщик задач и финансовых целей. Управляй делами через календарь, отслеживай прогресс, добавляй задачи и цели, экспортируй и импортируй данные. Всё в одном месте, с приятными темами и простым, понятным интерфейсом.
+      </li>
+      <li>
+        <strong><a href="https://github.com/FluffyBarbara/Kointari" target="_blank" rel="noopener noreferrer" class="btn-link">Kointari</a></strong> — лёгкий инструмент для ручного учёта финансов. Фиксируйте доходы и расходы с комментариями, отслеживайте баланс и серию заработка. Никаких сложностей — только нужные функции. Идеально для стримеров, игроков и личного пользования.
+      </li>
+    </ul>
+  </section>
+
+  <section class="projects" aria-label="Проекты Fluffy Barbara">
+    <div class="project-card" tabindex="0">
+      <a href="https://github.com/FluffyBarbara/Task-Flow" target="_blank" rel="noopener noreferrer">Task-Flow</a>
+    </div>
+    <div class="project-card" tabindex="0">
+      <a href="https://github.com/FluffyBarbara/SpeakTimer-GTA5RP" target="_blank" rel="noopener noreferrer">SpeakTimer</a>
+    </div>
+    <div class="project-card" tabindex="0">
+      <a href="https://github.com/FluffyBarbara/Kointari" target="_blank" rel="noopener noreferrer">Kointari</a>
+    </div>
+  </section>
+</div>
+
+<footer class="footer-bar" aria-label="Футер">
+  Все права защищены © Fluffy Barbara 2025
+</footer>
+
+</body>
+</html>
