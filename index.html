@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-<title>Fluffy Barbara — Портфолио</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Fluffy Barbara — Портфолио</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
 
-  body, html {
+    body, html {
     height: 100%;
     font-family: 'Poppins', sans-serif;
     background: url('background.png') no-repeat center center fixed;
@@ -347,31 +347,36 @@
   z-index: 1000;
   box-shadow: 0 -2px 8px #000000cc;
 }
-
-</style>
+  </style>
 </head>
 <body>
 
 <div class="wrapper" role="main" aria-label="Портфолио Fluffy Barbara">
-  <img
-    src="https://sun9-14.userapi.com/impg/CYlpIoJ_9zOZs91afE3TJUMJbPWOPHLejgt_yA/0n4OAC5MCCI.jpg?size=1620x2160&quality=95&sign=e6a890c1e44680d2d97ff99d9d034c23&type=album"
-    alt="Фото Fluffy Barbara"
-    class="avatar"
-    tabindex="0"
-  />
+  <img src="https://sun9-14.userapi.com/impg/CYlpIoJ_9zOZs91afE3TJUMJbPWOPHLejgt_yA/0n4OAC5MCCI.jpg?size=1620x2160&quality=95&sign=e6a890c1e44680d2d97ff99d9d034c23&type=album"
+       alt="Фото Fluffy Barbara"
+       class="avatar"
+       tabindex="0" />
   <h1 tabindex="0">Гонцовский Никита Русланович</h1>
   <h2 tabindex="0">Творческий псевдоним: Fluffy Barbara</h2>
 
   <div class="social-title" tabindex="0">Мои соц. сети:</div>
 
   <nav class="buttons" aria-label="Основные ссылки">
-    <a href="https://band.link/fluffybarbara" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">Музыка</a>
-    <a href="https://discord.gg/QxNGkTxgx2" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">Discord</a>
-    <a href="https://github.com/FluffyBarbara" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">GitHub</a>
-    <a href="https://vk.com/fluffybarbarapage" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">Группа ВК</a>
-    <a href="https://vk.com/fluffybarbara" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">Страница ВК</a>
-    <a href="https://t.me/fluffy_barbara" target="_blank" rel="noopener noreferrer" class="btn" tabindex="0">Telegram</a>
+    <a href="https://band.link/fluffybarbara" class="btn" target="_blank">Музыка</a>
+    <a href="https://discord.gg/QxNGkTxgx2" class="btn" target="_blank">Discord</a>
+    <a href="https://github.com/FluffyBarbara" class="btn" target="_blank">GitHub</a>
+    <a href="https://vk.com/fluffybarbarapage" class="btn" target="_blank">Группа ВК</a>
+    <a href="https://vk.com/fluffybarbara" class="btn" target="_blank">Страница ВК</a>
+    <a href="https://t.me/fluffy_barbara" class="btn" target="_blank">Telegram</a>
   </nav>
+
+  <!-- Биография -->
+  <section class="projects-desc" aria-label="Биография">
+    <h3>Обо мне</h3>
+    <p>Меня зовут Никита Гонцовский, но в мире творчества я известен как <strong>Fluffy Barbara</strong>. Я — человек, который соединяет программирование, музыку и эстетику в одно целое. Моё вдохновение рождается на стыке цифрового мира и человеческих эмоций — от строчек кода до звуковых пейзажей, от интуитивных интерфейсов до осмысленных мелодий.</p>
+    <p>В своей работе я стремлюсь к балансу между функциональностью и художественным самовыражением. Мои проекты — это не просто инструменты, а отражение моей философии: <em>удобство, свобода и внимание к деталям</em>. Будь то автоматизация рутины, личная продуктивность или самобытная музыка — я вкладываю душу в каждую строчку и каждую ноту.</p>
+    <p>Я не ограничиваю себя одним направлением — код, звук, визуал, комьюнити — всё это части одного большого потока под названием <strong>Fluffy Barbara</strong>. Добро пожаловать в мой цифровой мир.</p>
+  </section>
 
   <section class="projects-desc" aria-label="Описание проектов">
     <h3>
@@ -402,6 +407,7 @@
       <a href="https://github.com/FluffyBarbara/Kointari" target="_blank" rel="noopener noreferrer">Kointari</a>
     </div>
   </section>
+</div>
 </div>
 
 <footer class="footer-bar" aria-label="Футер">
